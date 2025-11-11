@@ -5,9 +5,7 @@ import DotGrid from "./DotGrid";
 const Hero = () => {
   return (
     <section className="relative w-full h-500 overflow-hidden flex flex-col items-center justify-center text-center text-white">
-      {/* --- Background Layers --- */}
-      <div className="absolute inset-0 bg-[#0D0D0F] -z-20" />{" "}
-      {/* Deep matte base */}
+      <div className="absolute inset-0 bg-[#0D0D0F] -z-20" />
       <div className="absolute inset-0 -z-10 opacity-90">
         <DotGrid
           dotSize={8}
