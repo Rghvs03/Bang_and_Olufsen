@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { animate } from "framer-motion";
 import CustomCursor from "./components/CustomCursor";
 import CircularGalleryDemo from "./components/CircularGalleryDemo";
+import CommunitySection from "./components/CommunitySection";
 
 const App = () => {
   useEffect(() => {
@@ -27,7 +28,9 @@ const App = () => {
 
       <Navbar />
       <Hero />
+
       <CircularGalleryDemo />
+      <CommunitySection />
     </>
   );
 };
