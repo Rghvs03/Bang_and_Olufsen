@@ -5,6 +5,7 @@ import { animate } from "framer-motion";
 import CustomCursor from "./components/CustomCursor";
 import CircularGalleryDemo from "./components/CircularGalleryDemo";
 import CommunitySection from "./components/CommunitySection";
+import FooterSection from "./components/FooterSection";
 
 const App = () => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = () => {
 
       <CircularGalleryDemo />
       <CommunitySection />
+      <FooterSection />
     </>
   );
 };
