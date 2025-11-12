@@ -49,7 +49,7 @@ const Hero = () => {
             "
           >
             <TiltedCard
-              videoSrc="public\Beosound Premiere _ Bang & Olufsen.mp4" // 👈 your video file
+              videoSrc="public\videos\Beosound Premiere _ Bang & Olufsen.mp4" // 👈 your video file
               altText="Beosound Premiere"
               captionText="Beosound Premiere"
               containerHeight="100%"
