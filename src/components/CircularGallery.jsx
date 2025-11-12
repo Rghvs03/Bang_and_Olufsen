@@ -206,7 +206,10 @@ class Media {
           float edgeSmooth = 0.002;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
           
-          gl_FragColor = vec4(color.rgb, alpha);
+          // subtle glassy transparency (let DotGrid show through)
+vec3 bgColor = vec3(0.0); // not used but kept for blending
+gl_FragColor = vec4(color.rgb * 1.05, alpha * 0.85);
+
         }
       `,
       uniforms: {
