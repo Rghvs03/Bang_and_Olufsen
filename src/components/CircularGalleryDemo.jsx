@@ -9,22 +9,22 @@ export default function CircularGalleryDemo() {
 
   const items = [
     {
-      image: "public/Products/beosound-a1.webp",
+      image: "/Products/beosound-a1.webp",
       text: "Beosound A1",
       subtitle: "Discover the new colourway: Rustic Red.",
     },
     {
-      image: "public/Products/Packshot-Beoplay-H100.webp",
+      image: "/Products/Packshot-Beoplay-H100.webp",
       text: "Beosound 2",
       subtitle: "The home speaker made to impress.",
     },
     {
-      image: "public/Products/Packshot-Beoplay-Eleven.webp",
+      image: "/Products/Packshot-Beoplay-Eleven.webp",
       text: "Beoplay Eleven",
       subtitle: "Vivid sound or pure silence.",
     },
     {
-      image: "public/Products/Beosound-2.webp",
+      image: "/Products/Beosound-2.webp",
       text: "Beoplay Eleven",
       subtitle: "Vivid sound or pure silence.",
     },
