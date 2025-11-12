@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { Play, Pause } from "lucide-react"; 
+import { Volume2, VolumeX } from "lucide-react"; // ✅ for mute/unmute toggle
 
 const springValues = {
   damping: 30,
@@ -27,7 +27,7 @@ export default function TiltedCard({
 }) {
   const ref = useRef(null);
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true); // 🎛️ toggle state
+  const [isMuted, setIsMuted] = useState(true); // ✅ only mute toggle now
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -77,18 +77,12 @@ export default function TiltedCard({
     rotateFigcaption.set(0);
   }
 
-  // 🎬 Single button for play/pause toggle
-  const togglePlayback = () => {
+  // ✅ Mute toggle only
+  const toggleMute = () => {
     const vid = videoRef.current;
     if (!vid) return;
-
-    if (isPlaying) {
-      vid.pause();
-      setIsPlaying(false);
-    } else {
-      vid.play();
-      setIsPlaying(true);
-    }
+    vid.muted = !isMuted;
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -119,14 +113,14 @@ export default function TiltedCard({
           scale,
         }}
       >
-        {/* 🎥 Conditional: video or image */}
+        {/* 🎥 Video or image logic */}
         {videoSrc ? (
           <motion.video
             ref={videoRef}
             src={videoSrc}
             autoPlay
             loop
-            muted={false} // 👈 plays with sound if autoplay allowed
+            muted={isMuted}
             playsInline
             className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
             style={{
@@ -146,29 +140,30 @@ export default function TiltedCard({
           />
         )}
 
-        {/* 🎛️ Single Toggle Button */}
+        {/* 🔊 Single Mute/Unmute Button */}
         {videoSrc && (
           <motion.button
             whileTap={{ scale: 0.9 }}
-            onClick={togglePlayback}
+            onClick={toggleMute}
             className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md border border-white/30 p-3 rounded-full hover:bg-white/20 transition-all z-10"
           >
-            {/* 👇 Conditional rendering of icon */}
-            {isPlaying ? (
-              <Pause size={18} className="text-white" />
+            {isMuted ? (
+              <VolumeX size={28} className="text-white" />
             ) : (
-              <Play size={18} className="text-white" />
+              <Volume2 size={28} className="text-white" />
             )}
           </motion.button>
         )}
 
-        {displayOverlayContent && overlayContent && (
+        {/* Overlay content (optional) */}
+        {/* {displayOverlayContent && overlayContent && (
           <motion.div className="absolute top-0 left-0 z-2 will-change-transform [transform:translateZ(30px)]">
             {overlayContent}
           </motion.div>
-        )}
+        )} */}
       </motion.div>
 
+      {/* Tooltip */}
       {showTooltip && (
         <motion.figcaption
           className="pointer-events-none absolute left-0 top-0 rounded-sm bg-white px-2.5 py-[4px] text-[10px] text-[#2d2d2d] opacity-0 z-[3] hidden sm:block"
