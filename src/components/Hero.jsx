@@ -87,7 +87,7 @@ const Hero = () => {
       </div>
 
       {/* Cinematic overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent -z-5" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent -z-5" />
     </section>
   );
 };

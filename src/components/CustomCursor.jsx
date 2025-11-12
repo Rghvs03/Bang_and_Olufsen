@@ -51,7 +51,7 @@ const CustomCursor = () => {
         scale,
       }}
       className="
-        fixed top-0 left-0 z-[9999] 
+        fixed top-0 left-0 z-9999 
         pointer-events-none 
         w-[20px] h-[20px] 
         rounded-full 
