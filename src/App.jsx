@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import { animate } from "framer-motion";
+import CustomCursor from "./components/CustomCursor";
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +22,8 @@ const App = () => {
 
   return (
     <>
+      {window.innerWidth > 768 && <CustomCursor />}
+
       <Navbar />
       <Hero />
     </>

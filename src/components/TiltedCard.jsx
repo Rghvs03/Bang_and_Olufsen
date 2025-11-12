@@ -145,22 +145,26 @@ export default function TiltedCard({
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={toggleMute}
-            className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md border border-white/30 p-3 rounded-full hover:bg-white/20 transition-all z-10"
+            className="
+      absolute bottom-4 right-4 
+      bg-black/50 backdrop-blur-md border border-white/30 
+      p-2.5 sm:p-3 rounded-full 
+      hover:bg-white/20 transition-all z-10
+    "
           >
             {isMuted ? (
-              <VolumeX size={28} className="text-white" />
+              <VolumeX
+                size={20}
+                className="text-white sm:w-[28px] sm:h-[28px]"
+              />
             ) : (
-              <Volume2 size={28} className="text-white" />
+              <Volume2
+                size={20}
+                className="text-white sm:w-[28px] sm:h-[28px]"
+              />
             )}
           </motion.button>
         )}
-
-        {/* Overlay content (optional) */}
-        {/* {displayOverlayContent && overlayContent && (
-          <motion.div className="absolute top-0 left-0 z-2 will-change-transform [transform:translateZ(30px)]">
-            {overlayContent}
-          </motion.div>
-        )} */}
       </motion.div>
 
       {/* Tooltip */}
