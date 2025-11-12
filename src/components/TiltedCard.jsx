@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { Play, Pause } from "lucide-react"; // ✅ you’ll use these two icons conditionally
+import { Play, Pause } from "lucide-react"; 
 
 const springValues = {
   damping: 30,
