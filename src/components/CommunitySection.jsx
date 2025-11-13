@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 export default function CommunitySection() {
   return (
     <section className="relative w-full min-h-screen flex flex-col md:flex-row items-stretch justify-center overflow-hidden">
-      {/* Dot background */}
       <div className="absolute inset-0 -z-10 bg-[#0a0a0b]" />
       <div className="absolute inset-0 -z-0 opacity-70">
         <DotGrid
@@ -22,7 +21,6 @@ export default function CommunitySection() {
         />
       </div>
 
-      {/* Left Side - Image */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
@@ -30,15 +28,13 @@ export default function CommunitySection() {
         className="w-full md:w-1/2 h-[40vh] md:h-auto overflow-hidden relative"
       >
         <img
-          src="/Products/community.jpg"
+          src="\Products\community.jpg.webp"
           alt="Bang & Olufsen TV"
           className="object-cover w-full h-full rounded-none"
         />
-        {/* gradient fade for desktop smooth merge */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent md:hidden" />
       </motion.div>
 
-      {/* Right Side - Form */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
