@@ -23,10 +23,10 @@ const History = () => {
           />
         </div>
 
-        {/* Soft blur overlay */}
+        
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] -z-10"></div>
 
-        {/* TEXT CONTENT WITH FADE-IN */}
+        
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -45,7 +45,7 @@ const History = () => {
         </motion.div>
       </div>
 
-      {/* RIGHT SIDE — Fullscreen Video (desktop) + background for mobile */}
+     
       <div className="relative w-full md:w-1/2 h-full overflow-hidden">
         <video
           className="w-full h-full object-cover"
@@ -56,7 +56,7 @@ const History = () => {
           playsInline
         ></video>
 
-        {/* MOBILE OVERLAY TEXT */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
