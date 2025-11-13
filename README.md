@@ -1,16 +1,34 @@
-# React + Vite
+# Bang & Olufsen Redesign
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern, immersive redesign of the iconic **Bang & Olufsen** website using the latest web technologies. It combines minimal design, motion graphics, and interactive 3D elements for an elegant user experience.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + Vite:** Fast, modern JS framework and build tool.
+- **Tailwind CSS:** Utility-first CSS for rapid custom design.
+- **Framer Motion:** Powerful library for stunning animations.
+- **Ready to Use OGL / WebGL Animations from ReactBits.Dev:** For interactive 3D experiences.
+- **Lucide Icons:** Clean, consistent icon set.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Sleek landing page with 3D & motion effects.
+- Mobile responsive design for all devices.
+- Animated product showcases, smooth transitions.
+- Highly optimized build (Vite).
+- Clean, maintainable codebase.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Preview
+[Live Demo](https://bang-and-olufsen.vercel.app/)
+---
+## 🔗 Inspirations
+ [Official Bang & Olufsen](https://www.bang-olufsen.com/en/int)
+
+---
+
+## ⚠️ Disclaimer
+
+This project is for educational and portfolio use only. All brand rights reserved by Bang & Olufsen.
+
+
