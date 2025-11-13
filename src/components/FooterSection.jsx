@@ -58,7 +58,7 @@ export default function FooterSection() {
       className="
         relative w-full 
         h-screen md:h-screen 
-        min-h-[600px]
+        min-h-[810px]
         text-white 
         overflow-hidden 
         flex flex-col
