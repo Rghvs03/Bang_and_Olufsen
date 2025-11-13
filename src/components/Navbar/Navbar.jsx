@@ -6,8 +6,9 @@ import MobileMenu from "./MobileMenu";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-  // Detect scroll position to darken navbar
+  // Darken navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
@@ -16,13 +17,43 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Auto-hide navbar on scroll direction
+  useEffect(() => {
+    let lastScroll = 0;
+
+    const handleScroll = () => {
+      const current = window.scrollY;
+
+      // Ignore hiding when mobile menu is open
+      if (open) {
+        setHidden(false);
+        return;
+      }
+
+      if (current > lastScroll && current > 80) {
+        setHidden(true); // scrolling down → hide navbar
+      } else {
+        setHidden(false); // scrolling up → show navbar
+      }
+
+      lastScroll = current;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [open]);
+
   return (
     <>
-      {/* NAVBAR CONTAINER */}
+      {/* NAVBAR */}
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        animate={{
+          y: hidden ? -140 : 0, // hide/show behavior
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeInOut",
+        }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
           ${
             scrolled
@@ -34,7 +65,7 @@ const Navbar = () => {
         <div className="relative flex justify-between items-center px-6 md:px-12 h-[95px] md:h-[120px] text-offwhite">
           {/* LEFT SECTION */}
           <div className="flex items-center">
-            {/* Desktop: Menu Button */}
+            {/* Desktop Menu Button */}
             <button
               onClick={() => setOpen(!open)}
               className="hidden md:flex items-center gap-2 group text-white"
@@ -45,7 +76,7 @@ const Navbar = () => {
               </span>
             </button>
 
-            {/* Mobile: Hamburger Icon */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setOpen(!open)}
               className="md:hidden text-white hover:text-gold transition-colors"
@@ -54,7 +85,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* CENTER — LOGO */}
+          {/* CENTER LOGO */}
           <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-lg hover:shadow-gold/20 transition">
               <img src="/BO_Logo_Black.svg" alt="B&O" className="h-8 md:h-10" />
@@ -82,7 +113,7 @@ const Navbar = () => {
               />
             </div>
 
-            {/* Mobile: Shopping Bag (right) */}
+            {/* Mobile Bag Icon */}
             <button className="md:hidden text-white hover:text-gold transition-colors">
               <ShoppingBag size={24} />
             </button>
@@ -90,7 +121,7 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE MENU */}
       <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   );

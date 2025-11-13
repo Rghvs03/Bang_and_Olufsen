@@ -53,7 +53,7 @@ const CustomCursor = () => {
       className="
         fixed top-0 left-0 z-9999 
         pointer-events-none 
-        w-[20px] h-[20px] 
+        w-3 h-3 
         rounded-full 
         bg-white/90 
         shadow-[0_0_12px_#cfa15b80] 

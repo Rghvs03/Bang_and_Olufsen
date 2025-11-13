@@ -206,10 +206,7 @@ class Media {
           float edgeSmooth = 0.002;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
           
-          // subtle glassy transparency (let DotGrid show through)
-vec3 bgColor = vec3(0.0); // not used but kept for blending
-gl_FragColor = vec4(color.rgb * 1.05, alpha * 0.85);
-
+          gl_FragColor = vec4(color.rgb, alpha);
         }
       `,
       uniforms: {
@@ -449,10 +446,9 @@ class App {
   onTouchMove(e) {
     if (!this.isDown) return;
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.015); // 👈 was 0.025
+    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
     this.scroll.target = this.scroll.position + distance;
   }
-
   onTouchUp() {
     this.isDown = false;
     this.onCheck();
@@ -475,35 +471,20 @@ class App {
       width: this.container.clientWidth,
       height: this.container.clientHeight,
     };
-
     this.renderer.setSize(this.screen.width, this.screen.height);
     this.camera.perspective({
       aspect: this.screen.width / this.screen.height,
     });
-
     const fov = (this.camera.fov * Math.PI) / 180;
     const height = 2 * Math.tan(fov / 2) * this.camera.position.z;
     const width = height * this.camera.aspect;
-
     this.viewport = { width, height };
-
-    // 📱 mobile scaling fix
-    const isMobile = window.innerWidth < 768;
-    this.scaleFactor = isMobile ? 0.7 : 1; // shrink slightly on mobile
-
     if (this.medias) {
-      this.medias.forEach((media) => {
-        media.onResize({ screen: this.screen, viewport: this.viewport });
-        // apply the mobile scale directly to the mesh
-        media.plane.scale.x *= this.scaleFactor;
-        media.plane.scale.y *= this.scaleFactor;
-        media.title.mesh.scale.x *= this.scaleFactor;
-        media.title.mesh.scale.y *= this.scaleFactor;
-        media.title.mesh.position.y *= this.scaleFactor;
-      });
+      this.medias.forEach((media) =>
+        media.onResize({ screen: this.screen, viewport: this.viewport })
+      );
     }
   }
-
   update() {
     this.scroll.current = lerp(
       this.scroll.current,
@@ -583,10 +564,6 @@ export default function CircularGallery({
     <div
       className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
       ref={containerRef}
-      style={{
-        touchAction: "none", // ✅ prevents accidental page scroll on mobile
-        paddingInline: window.innerWidth < 768 ? "12px" : "0px", // ✅ safe horizontal padding
-      }}
     />
   );
 }

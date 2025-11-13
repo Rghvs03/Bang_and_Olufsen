@@ -14,19 +14,19 @@ export default function CircularGalleryDemo() {
       subtitle: "Discover the new colourway: Rustic Red.",
     },
     {
-      image: "/Products/Packshot-Beoplay-H100.webp",
-      text: "Beosound 2",
-      subtitle: "The home speaker made to impress.",
-    },
-    {
       image: "/Products/Packshot-Beoplay-Eleven.webp",
-      text: "Beoplay Eleven",
+      text: "Beoplay-Elevan",
+      subtitle: "Experience the Stereo sound",
+    },
+    {
+      image: "/Products/Packshot-Beoplay-H100.png",
+      text: "Beoplay-H100",
       subtitle: "Vivid sound or pure silence.",
     },
     {
-      image: "/Products/Beosound-2.webp",
-      text: "Beoplay Eleven",
-      subtitle: "Vivid sound or pure silence.",
+      image: "/Products/PackshotBeosound-3.jpg",
+      text: "Mr. 360°",
+      subtitle: "Intelligent 360° speaker. Fill any room with pristine sound.",
     },
   ];
 
@@ -66,7 +66,6 @@ export default function CircularGalleryDemo() {
           bend={3}
           textColor="#ffffff"
           borderRadius={0.05}
-          scrollSpeed={0.7}
           scrollEase={0.02}
         />
       ) : (

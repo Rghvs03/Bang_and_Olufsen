@@ -88,7 +88,7 @@ export default function TiltedCard({
   return (
     <figure
       ref={ref}
-      className="relative w-full h-full [perspective:800px] flex flex-col items-center justify-center"
+      className="relative w-full h-full perspective-midrange flex flex-col items-center justify-center"
       style={{
         height: containerHeight,
         width: containerWidth,
@@ -104,7 +104,7 @@ export default function TiltedCard({
       )}
 
       <motion.div
-        className="relative [transform-style:preserve-3d]"
+        className="relative transform-3d "
         style={{
           width: imageWidth,
           height: imageHeight,
@@ -122,7 +122,7 @@ export default function TiltedCard({
             loop
             muted={isMuted}
             playsInline
-            className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
+            className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform transform-[translateZ(0)]"
             style={{
               width: imageWidth,
               height: imageHeight,
@@ -155,12 +155,12 @@ export default function TiltedCard({
             {isMuted ? (
               <VolumeX
                 size={20}
-                className="text-white sm:w-[28px] sm:h-[28px]"
+                className="text-white sm:w-7 sm:h-7"
               />
             ) : (
               <Volume2
                 size={20}
-                className="text-white sm:w-[28px] sm:h-[28px]"
+                className="text-white sm:w-7 sm:h-7"
               />
             )}
           </motion.button>

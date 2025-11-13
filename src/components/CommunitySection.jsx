@@ -44,7 +44,7 @@ export default function CommunitySection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
         className="relative w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 md:py-0
-                   bg-black/40 backdrop-blur-md border-l border-white/20"
+                    backdrop-blur-xs "
       >
         <div className="max-w-md mx-auto text-left space-y-6">
           <h3 className="text-[#CFA15B] uppercase tracking-[4px] text-sm font-medium">
