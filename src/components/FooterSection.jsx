@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import DotGrid from "./DotGrid";
-import { Globe2 } from "lucide-react"; // optional icon set
+import { Globe2 } from "lucide-react";
 
 export default function FooterSection() {
   const footerLinks = [
@@ -54,7 +54,16 @@ export default function FooterSection() {
   ];
 
   return (
-    <footer className="relative w-full text-white py-16 overflow-hidden">
+    <footer
+      className="
+        relative w-full 
+        h-screen md:h-screen 
+        min-h-[600px]
+        text-white 
+        overflow-hidden 
+        flex flex-col
+      "
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-[#0a0a0b] -z-20" />
       <div className="absolute inset-0 -z-10 opacity-70">
@@ -71,13 +80,29 @@ export default function FooterSection() {
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 md:gap-16 z-10">
+      {/* TOP SPACING - dynamic, prevents clipping on mobile */}
+      <div className="pt-10 md:pt-20" />
+
+      {/* Grid Content */}
+      <div
+        className="
+          flex-1 
+          max-w-7xl mx-auto 
+          px-6 md:px-12 
+          grid 
+          grid-cols-2 
+          sm:grid-cols-3 
+          md:grid-cols-4 
+          gap-10 md:gap-16
+          md:mt-50
+        "
+      >
         {footerLinks.map((section, i) => (
           <motion.div
             key={section.title}
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.6 }}
           >
             <h3 className="text-[#CFA15B] uppercase tracking-[2px] text-sm font-medium mb-4">
@@ -88,7 +113,7 @@ export default function FooterSection() {
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-white/70 hover:text-[#CFA15B] transition-colors text-sm"
+                    className="text-white/70 hover:text-[#CFA15B] transition-colors md:text-2xl text-sm"
                   >
                     {link}
                   </a>
@@ -100,20 +125,44 @@ export default function FooterSection() {
       </div>
 
       {/* Divider */}
-      <div className="max-w-7xl mx-auto my-10 border-t border-white/10"></div>
+      <div className="max-w-7xl mx-auto w-full px-6 md:px-12 mt-10">
+        <div className="border-t border-white/10"></div>
+      </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 text-sm text-white/60">
-        <p className="order-2 md:order-1 text-xs">
+      <div
+        className="
+          max-w-7xl mx-auto 
+          w-full 
+          px-6 md:px-12 
+          py-6 
+          flex flex-col md:flex-row 
+          justify-between 
+          items-center 
+          gap-4 
+          text-white/60 
+          text-sm
+        "
+      >
+        <p className="text-xs md:text-sm">
           © {new Date().getFullYear()} Bang & Olufsen. All rights reserved.
         </p>
 
-        {/* Language Selector */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center gap-2 order-1 md:order-2 bg-black/30 backdrop-blur-sm px-3 py-2 rounded-full border border-white/10 hover:border-[#CFA15B] transition-colors cursor-pointer"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="
+            flex items-center gap-2 
+            bg-black/30 backdrop-blur-sm 
+            px-4 py-2 
+            rounded-full 
+            border border-white/10 
+            hover:border-[#CFA15B] 
+            transition-colors 
+            cursor-pointer
+          "
         >
           <Globe2 className="w-4 h-4 text-[#CFA15B]" />
           <span className="text-white/80">International</span>

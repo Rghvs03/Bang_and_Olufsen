@@ -6,7 +6,6 @@ import TiltedCard from "./TiltedCard";
 const Hero = () => {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-white">
-      {/* Background */}
       <div className="absolute inset-0 bg-[#0D0D0F] -z-20" />
       <div className="absolute inset-0 -z-10 opacity-90">
         <DotGrid
@@ -22,7 +21,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full flex flex-col items-center text-center px-4 sm:px-6 md:px-12 h-full justify-center mt-20">
         {/* Title */}
         <motion.h1
@@ -34,7 +32,6 @@ const Hero = () => {
           Beosound Premiere
         </motion.h1>
 
-        {/* Tilted Video Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,7 +67,6 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +82,6 @@ const Hero = () => {
         </motion.p>
       </div>
 
-      {/* Cinematic overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent -z-5" />
     </section>
   );

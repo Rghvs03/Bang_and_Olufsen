@@ -1,4 +1,3 @@
-// src/components/ProductCardMobile.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -16,10 +15,8 @@ const ProductCardMobile = ({ imageSrc, title, subtitle, onClick }) => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay gradient for readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-      {/* Content */}
       <div className="relative z-10 p-6 text-white w-full">
         <h2 className="text-2xl font-semibold tracking-tight mb-2">
           {title || "Beosound A1"}

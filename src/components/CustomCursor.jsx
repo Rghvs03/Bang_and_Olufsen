@@ -4,13 +4,9 @@ import { motion, useSpring, useMotionValue } from "framer-motion";
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   const cursorSize = 20;
-
-  // Base motion values
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const scale = useSpring(1, { stiffness: 150, damping: 15 });
-
-  // Follow mouse position
   useEffect(() => {
     const moveCursor = (e) => {
       x.set(e.clientX - cursorSize / 2);
@@ -21,7 +17,6 @@ const CustomCursor = () => {
     return () => window.removeEventListener("mousemove", moveCursor);
   }, [x, y]);
 
-  // Detect interactive hover
   useEffect(() => {
     const handleHover = () => scale.set(1.8);
     const handleLeave = () => scale.set(1);

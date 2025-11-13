@@ -6,6 +6,7 @@ import CustomCursor from "./components/CustomCursor";
 import CircularGalleryDemo from "./components/CircularGalleryDemo";
 import CommunitySection from "./components/CommunitySection";
 import FooterSection from "./components/FooterSection";
+import History from "./components/History";
 
 const App = () => {
   useEffect(() => {
@@ -29,8 +30,8 @@ const App = () => {
 
       <Navbar />
       <Hero />
-
       <CircularGalleryDemo />
+      <History />
       <CommunitySection />
       <FooterSection />
     </>

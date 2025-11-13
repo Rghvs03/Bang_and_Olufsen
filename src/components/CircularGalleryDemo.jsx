@@ -2,10 +2,9 @@ import React from "react";
 import DotGrid from "./DotGrid";
 import CircularGallery from "./CircularGallery";
 import useIsMobile from "../hooks/useIsMobile";
-import ProductCardMobile from "./ProductCardMobile"; // 👈 import our new card component
-
+import ProductCardMobile from "./ProductCardMobile";
 export default function CircularGalleryDemo() {
-  const isMobile = useIsMobile(); // ✅ detect screen size
+  const isMobile = useIsMobile();
 
   const items = [
     {
@@ -25,7 +24,7 @@ export default function CircularGalleryDemo() {
     },
     {
       image: "/Products/PackshotBeosound-3.jpg",
-      text: "Mr. 360°",
+      text: "Beoplay 360°",
       subtitle: "Intelligent 360° speaker. Fill any room with pristine sound.",
     },
   ];
@@ -42,7 +41,6 @@ export default function CircularGalleryDemo() {
       }}
       className="relative"
     >
-      {/* background */}
       <div className="absolute inset-0 bg-[#0a0a0b] -z-20" />
       <div className="absolute inset-0 -z-10 opacity-90">
         <DotGrid
@@ -58,18 +56,16 @@ export default function CircularGalleryDemo() {
         />
       </div>
 
-      {/* ---- Conditional Rendering ---- */}
       {!isMobile ? (
-        // 🖥️ Desktop → keep ReactBits circular gallery
         <CircularGallery
           items={items}
           bend={3}
           textColor="#ffffff"
           borderRadius={0.05}
+          scrollSpeed={0.8}
           scrollEase={0.02}
         />
       ) : (
-        // 📱 Mobile → show simple elegant product cards
         <div className="flex flex-col gap-10 w-full px-4 overflow-y-scroll snap-y snap-mandatory h-[100vh] pb-10">
           {items.map((product, index) => (
             <div key={index} className="snap-center">

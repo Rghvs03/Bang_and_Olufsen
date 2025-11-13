@@ -36,7 +36,6 @@ const MobileMenu = ({ open, onClose }) => {
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
             className="relative w-full md:w-[30%] h-full bg-[#0D0D0F]/95 flex flex-col"
           >
-            {/* SCROLLABLE INNER WRAPPER */}
             <div
               className="flex-1 overflow-y-auto overscroll-contain px-10  py-10  md:pt-[140px] scrollbar-thin  scrollbar-thumb-[#a2834b]/20  scrollbar-track-transparent hover:scrollbar-thumb-[#a2834b]/40"
               style={{

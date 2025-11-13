@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { Volume2, VolumeX } from "lucide-react"; // ✅ for mute/unmute toggle
+import { Volume2, VolumeX } from "lucide-react";
 
 const springValues = {
   damping: 30,
@@ -27,7 +27,7 @@ export default function TiltedCard({
 }) {
   const ref = useRef(null);
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true); // ✅ only mute toggle now
+  const [isMuted, setIsMuted] = useState(true);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -77,7 +77,6 @@ export default function TiltedCard({
     rotateFigcaption.set(0);
   }
 
-  // ✅ Mute toggle only
   const toggleMute = () => {
     const vid = videoRef.current;
     if (!vid) return;
@@ -113,7 +112,6 @@ export default function TiltedCard({
           scale,
         }}
       >
-        {/* 🎥 Video or image logic */}
         {videoSrc ? (
           <motion.video
             ref={videoRef}
@@ -140,7 +138,6 @@ export default function TiltedCard({
           />
         )}
 
-        {/* 🔊 Single Mute/Unmute Button */}
         {videoSrc && (
           <motion.button
             whileTap={{ scale: 0.9 }}
@@ -153,21 +150,14 @@ export default function TiltedCard({
     "
           >
             {isMuted ? (
-              <VolumeX
-                size={20}
-                className="text-white sm:w-7 sm:h-7"
-              />
+              <VolumeX size={20} className="text-white sm:w-7 sm:h-7" />
             ) : (
-              <Volume2
-                size={20}
-                className="text-white sm:w-7 sm:h-7"
-              />
+              <Volume2 size={20} className="text-white sm:w-7 sm:h-7" />
             )}
           </motion.button>
         )}
       </motion.div>
 
-      {/* Tooltip */}
       {showTooltip && (
         <motion.figcaption
           className="pointer-events-none absolute left-0 top-0 rounded-sm bg-white px-2.5 py-[4px] text-[10px] text-[#2d2d2d] opacity-0 z-[3] hidden sm:block"
